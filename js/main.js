@@ -64,9 +64,9 @@ function initMobileNav() {
 
 /* --- Student Profile Details Persistence --- */
 const DEFAULT_STUDENT = {
-  name: 'Aarav Sharma',
-  class: 'IX',
-  section: 'A',
+  name: 'Anmol',
+  class: 'VIII',
+  section: 'B',
   roll: '12'
 };
 
