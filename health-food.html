@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Good Health & Safe Food - SDG 3 Project</title>
+  <meta name="description" content="Discover why clean, chemical-free food is essential for good health, and how hydroponics acts as a catalyst for safe nutrition under SDG 3.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Unique layout for health-food.html */
+    .compare-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin: 4rem 0;
+    }
+    
+    .compare-box {
+      border-radius: var(--border-radius);
+      padding: 2.5rem;
+      position: relative;
+    }
+    
+    .compare-soil {
+      background: rgba(239, 68, 68, 0.05);
+      border: 1px solid rgba(239, 68, 68, 0.15);
+    }
+    
+    .compare-hydro {
+      background: rgba(16, 185, 129, 0.05);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+    
+    .compare-box h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .compare-soil h3 { color: var(--danger); }
+    .compare-hydro h3 { color: var(--primary); }
+    
+    .compare-list {
+      list-style: none;
+    }
+    
+    .compare-list li {
+      margin-bottom: 1rem;
+      padding-left: 1.75rem;
+      position: relative;
+      font-size: 0.95rem;
+    }
+    
+    .compare-soil .compare-list li::before {
+      content: '✗';
+      position: absolute;
+      left: 0;
+      color: var(--danger);
+      font-weight: bold;
+    }
+    
+    .compare-hydro .compare-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+    }
+    
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 4rem;
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+    }
+    
+    @media (max-width: 768px) {
+      .compare-container {
+        grid-template-columns: 1fr;
+      }
+      .stat-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">
+        <div class="logo-icon">🌿</div>
+        <span>HydroGrow</span>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html">Home</a></li>
+          <li class="nav-item"><a href="health-food.html">Health & Food</a></li>
+          <li class="nav-item"><a href="hydroponics.html">Hydroponics</a></li>
+          <li class="nav-item"><a href="ai-cycle.html">AI Project Cycle</a></li>
+          <li class="nav-item"><a href="student-work.html">Student Work</a></li>
+          <li class="nav-item"><a href="submission.html">Submission</a></li>
+        </ul>
+      </nav>
+      <div class="nav-controls">
+        <button class="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        <button class="hamburger" aria-label="Open Navigation Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="section" style="padding-bottom: 2rem; background: radial-gradient(circle at 10% 20%, var(--primary-glow) 0%, transparent 40%);">
+    <div class="container" style="text-align: center;">
+      <span class="hero-tag">Page 1: Core Topic</span>
+      <h1 style="font-size: 3rem; margin-bottom: 1rem; font-weight: 800;">Importance of Good Health & Safe Food</h1>
+      <p style="max-width: 700px; margin: 0 auto; font-size: 1.15rem; color: var(--text-secondary);">
+        How pesticide-free hydroponic crop cultivation acts as a cornerstone for promoting global health, clean nutrition, and cognitive wellbeing.
+      </p>
+    </div>
+  </section>
+
+  <!-- Core Content Section -->
+  <section class="section" style="padding-top: 2rem;">
+    <div class="container">
+      
+      <!-- Informative Paragraphs -->
+      <div class="glass-card" style="margin-bottom: 4rem;">
+        <h2 style="font-size: 1.8rem; margin-bottom: 1.25rem; color: var(--primary);">Why Safe Food is Essential for SDG 3</h2>
+        <p>Good health (SDG 3) starts with the fuel we feed our bodies. Modern conventional agriculture relies heavily on toxic chemical sprays, synthetic growth boosters, and mineral-depleted soils. Over time, ingestion of residual pesticides triggers severe acute health effects and chronic neurological conditions.</p>
+        <p style="margin-bottom: 0;">Safe food means food that is harvested under sanitary conditions, devoid of biological contaminants, and completely free from industrial toxins. By choosing soil-less farming techniques like hydroponics, crops are grown inside protected greenhouses with automated nutrient solution flow, completely eliminating the need for weeds, soil pests, and the corresponding chemical sprays.</p>
+      </div>
+
+      <!-- Comparative Section -->
+      <h2 class="section-title" style="font-size: 2rem; margin-bottom: 1rem;">Conventional Soil vs. Safe Hydroponic Food</h2>
+      <p style="text-align: center; max-width: 600px; margin: 0 auto 3rem auto; color: var(--text-secondary);">
+        A straight comparison highlighting the biological benefits of hydroponically raised crops over traditional mud farming.
+      </p>
+
+      <div class="compare-container">
+        <!-- Soil Box -->
+        <div class="compare-box compare-soil">
+          <h3><span>⚠️</span> Traditional Soil Agriculture</h3>
+          <ul class="compare-list">
+            <li><strong>High Pesticide Residue:</strong> Runoff and weed containment necessitate frequent spraying of harmful synthetic chemical pesticides.</li>
+            <li><strong>Pathogen Danger:</strong> Direct contact with dirt, compost, and animal manure exposes plants to harmful bacteria like E. coli.</li>
+            <li><strong>Inconsistent Mineral Feed:</strong> Changing weather, soil acidity, and local erosion deplete natural minerals, resulting in less nutritious food.</li>
+            <li><strong>Wasted Resource:</strong> Enormous quantities of water soak into the earth or evaporate, leading to high water footprint and soil degradation.</li>
+          </ul>
+        </div>
+
+        <!-- Hydroponics Box -->
+        <div class="compare-box compare-hydro">
+          <h3><span>🌿</span> Controlled Hydroponic Growing</h3>
+          <ul class="compare-list">
+            <li><strong>Zero Harmful Sprays:</strong> Indoor growth shields plants from mud pests, weeds, and pathogens, completely negating chemical spraying.</li>
+            <li><strong>Sterile Growth Conditions:</strong> Growing in clean water channels with inert substrates (clay, coco-coir) yields clean, dirt-free lettuce and greens.</li>
+            <li><strong>Tailored Nutrition Profiles:</strong> Precise balance of trace elements is pumped to roots, maximizing vitamins, anti-oxidants, and minerals.</li>
+            <li><strong>Ecological Efficiency:</strong> Recirculating irrigation saves up to 90% water compared to soil. Less footprint, higher growth rate, superior food.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Stat Counters (Micro-animations placeholder) -->
+      <div class="stat-row">
+        <div class="glass-card">
+          <div class="stat-number">90%</div>
+          <div class="stat-label">Less Water Usage</div>
+        </div>
+        <div class="glass-card">
+          <div class="stat-number">2x</div>
+          <div class="stat-label">Faster Crop Growth Speed</div>
+        </div>
+        <div class="glass-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Pesticide & Weed-Free</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-layout">
+        <div class="footer-brand">
+          <h3 style="display: flex; align-items: center; gap: 0.5rem; color: var(--primary);">
+            <span style="font-size: 1.4rem;">🌿</span> HydroGrow Project
+          </h3>
+          <p>Promoting healthy living, food security, and modern sustainable agriculture through smart hydroponic gardening and AI technology.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Explore Project</h4>
+          <ul>
+            <li><a href="index.html">Home / Overview</a></li>
+            <li><a href="health-food.html">Good Health & Safe Food</a></li>
+            <li><a href="hydroponics.html">Hydroponics Explained</a></li>
+            <li><a href="ai-cycle.html">AI Project Cycle</a></li>
+            <li><a href="student-work.html">Student Work & Data</a></li>
+            <li><a href="submission.html">Submission Portal</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Project Details</h4>
+          <p style="margin-bottom: 0.5rem;"><strong>Subject:</strong> Science & AI Exhibition</p>
+          <p style="margin-bottom: 0.5rem;"><strong>Theme:</strong> SDG 3: Good Health & Wellbeing</p>
+          <p><strong>Status:</strong> Holiday Homework Project</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026. Designed for Central Board of Secondary Education (CBSE) Curriculum.</p>
+        <div class="footer-bottom-links">
+          <span style="color: var(--primary); font-weight: 600;">SDG Goal 3: Good Health & Wellbeing</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

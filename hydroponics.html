@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hydroponics Explained - SDG 3 Project</title>
+  <meta name="description" content="Learn the science of hydroponics: NFT, DWC, and Aeroponics. Interact with our digital model to explore how system components work.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Specific styles for hydroponics page */
+    .system-types-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 5rem;
+    }
+    
+    .system-card {
+      text-align: center;
+    }
+    
+    .system-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    
+    /* Diagram Layout */
+    .diagram-section {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+      margin: 4rem 0;
+    }
+    
+    .diagram-container {
+      background: var(--bg-secondary);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .interactive-svg {
+      width: 100%;
+      height: auto;
+      max-height: 400px;
+    }
+    
+    /* Interactive SVG Classes */
+    .svg-hoverable {
+      transition: all 0.25s ease;
+      stroke-width: 1.5px;
+      stroke: var(--text-muted);
+    }
+    
+    .svg-hoverable:hover,
+    .svg-highlighted {
+      stroke: var(--primary) !important;
+      stroke-width: 3px !important;
+      filter: drop-shadow(0 0 10px var(--primary-glow));
+    }
+    
+    .info-panel {
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .info-panel h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .instruction-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-style: italic;
+    }
+    
+    @media (max-width: 992px) {
+      .system-types-grid {
+        grid-template-columns: 1fr;
+      }
+      .diagram-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">
+        <div class="logo-icon">🌿</div>
+        <span>HydroGrow</span>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html">Home</a></li>
+          <li class="nav-item"><a href="health-food.html">Health & Food</a></li>
+          <li class="nav-item"><a href="hydroponics.html">Hydroponics</a></li>
+          <li class="nav-item"><a href="ai-cycle.html">AI Project Cycle</a></li>
+          <li class="nav-item"><a href="student-work.html">Student Work</a></li>
+          <li class="nav-item"><a href="submission.html">Submission</a></li>
+        </ul>
+      </nav>
+      <div class="nav-controls">
+        <button class="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        <button class="hamburger" aria-label="Open Navigation Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="section" style="padding-bottom: 2rem; background: radial-gradient(circle at 90% 10%, var(--primary-glow) 0%, transparent 40%);">
+    <div class="container" style="text-align: center;">
+      <span class="hero-tag">Page 2: Technology</span>
+      <h1 style="font-size: 3rem; margin-bottom: 1rem; font-weight: 800;">Hydroponics Explained</h1>
+      <p style="max-width: 700px; margin: 0 auto; font-size: 1.15rem; color: var(--text-secondary);">
+        The science of growing plants in water rather than soil. Discover different types of setups and explore the core mechanisms of our NFT system.
+      </p>
+    </div>
+  </section>
+
+  <!-- Image and Overview Row -->
+  <section class="section" style="padding-top: 2rem; padding-bottom: 2rem;">
+    <div class="container">
+      <div class="hero-layout" style="margin-bottom: 4rem;">
+        <div class="hero-img-container">
+          <img src="assets/hydroponic-setup.png" alt="Close-up of leafy basil growing in white PVC hydroponic channels, with root structures visible inside cutouts" class="hero-img">
+        </div>
+        <div class="hero-content">
+          <h2 style="font-size: 2rem; margin-bottom: 1.25rem;">How Soil-Less Cultivation Works</h2>
+          <p>Traditional soil farming acts primarily as an anchor for roots and a random buffer for nutrients. Hydroponics extracts soil entirely from the equation. Instead, plants are supported in net cups by sterile substrates (such as expanded clay pebbles, rockwool, or coconut fiber).</p>
+          <p>The roots are fed a perfectly balanced liquid nutrient solution containing all 17 elements critical for growth. Because they don't have to search through soil for nutrients, the root systems stay compact, and energy is redirected into rapid leaf, fruit, and flower development.</p>
+        </div>
+      </div>
+
+      <!-- Core System Types -->
+      <h2 class="section-title">Types of Hydroponic Systems</h2>
+      <div class="system-types-grid">
+        <!-- NFT Card -->
+        <div class="glass-card system-card">
+          <div class="system-icon">💧</div>
+          <h3>NFT (Nutrient Film Technique)</h3>
+          <p>A continuous, very shallow stream of nutrient solution ("film") flows down slightly slanted growth channels. Roots sit directly in this film, absorbing water and air simultaneously.</p>
+        </div>
+
+        <!-- DWC Card -->
+        <div class="glass-card system-card">
+          <div class="system-icon">🪣</div>
+          <h3>DWC (Deep Water Culture)</h3>
+          <p>Plants are suspended in nets on a floating raft. The roots are completely submerged in a deep reservoir of oxygenated nutrient water bubble-fed by an air pump.</p>
+        </div>
+
+        <!-- Aeroponics Card -->
+        <div class="glass-card system-card">
+          <div class="system-icon">💨</div>
+          <h3>Aeroponics</h3>
+          <p>The roots hang freely in a closed chamber where they are misted at regular intervals with nutrient solution. This provides maximum oxygen exposure to roots, accelerating growth.</p>
+        </div>
+      </div>
+
+      <!-- Interactive Diagram Section -->
+      <h2 class="section-title">Interactive NFT System Model</h2>
+      <p style="text-align: center; max-width: 600px; margin: -2rem auto 3rem auto; color: var(--text-secondary);">
+        Hover over or tap the colored parts of the diagram below to explore how a closed-loop NFT hydroponic system works.
+      </p>
+
+      <div class="diagram-section">
+        <!-- SVG Container -->
+        <div class="diagram-container">
+          <svg class="interactive-svg" viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="waterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.8"/>
+                <stop offset="100%" stop-color="#1d4ed8" stop-opacity="0.9"/>
+              </linearGradient>
+            </defs>
+            
+            <!-- Background grid lines (Subtle) -->
+            <line x1="50" y1="50" x2="550" y2="50" stroke="var(--glass-border)" stroke-dasharray="5,5"/>
+            <line x1="50" y1="400" x2="550" y2="400" stroke="var(--glass-border)" stroke-dasharray="5,5"/>
+
+            <!-- 1. Reservoir Group -->
+            <g id="svg-reservoir" class="svg-hoverable" fill="transparent" stroke="#475569" stroke-width="2">
+              <!-- Tank outer body -->
+              <rect x="150" y="300" width="300" height="110" rx="10" fill="var(--bg-secondary)"/>
+              <!-- Water solution level -->
+              <rect x="155" y="330" width="290" height="75" rx="5" fill="url(#waterGrad)" stroke="none"/>
+              <!-- Bubbles representing oxygenation -->
+              <circle cx="280" cy="380" r="3" fill="rgba(255,255,255,0.7)" stroke="none"/>
+              <circle cx="285" cy="365" r="4" fill="rgba(255,255,255,0.6)" stroke="none"/>
+              <circle cx="310" cy="385" r="2.5" fill="rgba(255,255,255,0.7)" stroke="none"/>
+              <circle cx="305" cy="370" r="4.5" fill="rgba(255,255,255,0.5)" stroke="none"/>
+              <circle cx="320" cy="360" r="3" fill="rgba(255,255,255,0.7)" stroke="none"/>
+            </g>
+
+            <!-- 2. Pump Group -->
+            <g id="svg-pump" class="svg-hoverable" fill="#334155" stroke="#1e293b" stroke-width="2">
+              <!-- Pump Body -->
+              <rect x="180" y="355" width="40" height="35" rx="3"/>
+              <!-- Pump Inlet -->
+              <rect x="172" y="367" width="8" height="12" rx="1"/>
+              <!-- Electric cord -->
+              <path d="M 220 370 Q 235 370 240 420" fill="none" stroke="#0f172a" stroke-width="1.5"/>
+            </g>
+
+            <!-- 3. Feedpipe Group -->
+            <g id="svg-feedpipe" class="svg-hoverable" fill="none" stroke="#3b82f6" stroke-width="3">
+              <!-- Path from pump, going left, going up, going right to top of channel -->
+              <path d="M 200 355 L 200 320 L 80 320 L 80 140 L 115 140"/>
+              <!-- Tiny water drop arrow pointing into channel -->
+              <polygon points="115,138 123,140 115,142" fill="#3b82f6" stroke="none"/>
+            </g>
+
+            <!-- 4. Channel Group -->
+            <g id="svg-channels" class="svg-hoverable" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2">
+              <!-- Slanted Growing Channel (NFT Gully) -->
+              <polygon points="100,145 500,185 500,205 100,165" fill="var(--bg-secondary)"/>
+              <!-- Nutrient solution film flowing inside -->
+              <polygon points="105,160 495,199 495,202 105,163" fill="#3b82f6" stroke="none"/>
+            </g>
+
+            <!-- 5. Drainpipe Group -->
+            <g id="svg-drainpipe" class="svg-hoverable" fill="none" stroke="#3b82f6" stroke-width="3">
+              <!-- Pipe from low end of channel back down to tank -->
+              <path d="M 480 200 L 480 280 L 390 280 L 390 325"/>
+              <!-- Arrow returning to reservoir -->
+              <polygon points="388,325 390,332 392,325" fill="#3b82f6" stroke="none"/>
+            </g>
+
+            <!-- 6. Airstone & Airpump Group -->
+            <g id="svg-airstone" class="svg-hoverable" fill="none" stroke="#cbd5e1" stroke-width="2">
+              <!-- External air pump -->
+              <rect x="490" y="350" width="35" height="30" rx="4" fill="#64748b" stroke="#475569"/>
+              <!-- Air line -->
+              <path d="M 490 365 Q 460 365 400 380 L 330 385" stroke="#94a3b8" stroke-width="1.5"/>
+              <!-- Air Stone cylinder at bottom of tank -->
+              <rect x="280" y="380" width="50" height="10" rx="2" fill="#94a3b8" stroke="#475569"/>
+            </g>
+
+            <!-- 7. Plants and Roots Group -->
+            <g id="svg-plants" class="svg-hoverable" fill="none">
+              <!-- Netpots & roots -->
+              <!-- Pot 1 -->
+              <polygon points="150,150 170,152 165,167 155,166" fill="#0f172a" stroke="none"/>
+              <path d="M 160 167 Q 150 185 158 195 M 160 167 Q 170 180 162 198" stroke="#f1f5f9" stroke-width="1.5"/>
+              <!-- Plant 1 Leaves -->
+              <path d="M 160 150 C 145 135 150 120 160 125 C 170 120 175 135 160 150 Z" fill="#10b981" stroke="#047857" stroke-width="1"/>
+              <circle cx="160" cy="138" r="6" fill="#34d399" stroke="none"/>
+              
+              <!-- Pot 2 -->
+              <polygon points="250,160 270,162 265,177 255,176" fill="#0f172a" stroke="none"/>
+              <path d="M 260 177 Q 250 195 258 205 M 260 177 Q 270 190 262 208" stroke="#f1f5f9" stroke-width="1.5"/>
+              <!-- Plant 2 Leaves -->
+              <path d="M 260 160 C 245 145 250 130 260 135 C 270 130 275 145 260 160 Z" fill="#10b981" stroke="#047857" stroke-width="1"/>
+              <circle cx="260" cy="148" r="7" fill="#34d399" stroke="none"/>
+
+              <!-- Pot 3 -->
+              <polygon points="350,170 370,172 365,187 355,186" fill="#0f172a" stroke="none"/>
+              <path d="M 360 187 Q 350 205 358 215 M 360 187 Q 370 200 362 218" stroke="#f1f5f9" stroke-width="1.5"/>
+              <!-- Plant 3 Leaves -->
+              <path d="M 360 170 C 345 155 350 140 360 145 C 370 140 375 155 360 170 Z" fill="#10b981" stroke="#047857" stroke-width="1"/>
+              <circle cx="360" cy="158" r="6.5" fill="#34d399" stroke="none"/>
+
+              <!-- Pot 4 -->
+              <polygon points="450,180 470,182 465,197 455,196" fill="#0f172a" stroke="none"/>
+              <path d="M 460 197 Q 450 215 458 225 M 460 197 Q 470 210 462 228" stroke="#f1f5f9" stroke-width="1.5"/>
+              <!-- Plant 4 Leaves -->
+              <path d="M 460 180 C 445 165 450 150 460 155 C 470 150 475 165 460 180 Z" fill="#10b981" stroke="#047857" stroke-width="1"/>
+              <circle cx="460" cy="168" r="7" fill="#34d399" stroke="none"/>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Detail Panel -->
+        <div class="glass-card info-panel" id="diagram-info-panel">
+          <h3 id="diagram-component-title">Select a component</h3>
+          <p id="diagram-component-desc">Click or hover on any colored element in the system diagram (such as the plants, channels, water pump, reservoir, or pipes) to display detailed anatomical and functional information.</p>
+          
+          <div class="instruction-note">
+            <span>💡</span> Hover on components to peek. Click to keep details active.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-layout">
+        <div class="footer-brand">
+          <h3 style="display: flex; align-items: center; gap: 0.5rem; color: var(--primary);">
+            <span style="font-size: 1.4rem;">🌿</span> HydroGrow Project
+          </h3>
+          <p>Promoting healthy living, food security, and modern sustainable agriculture through smart hydroponic gardening and AI technology.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Explore Project</h4>
+          <ul>
+            <li><a href="index.html">Home / Overview</a></li>
+            <li><a href="health-food.html">Good Health & Safe Food</a></li>
+            <li><a href="hydroponics.html">Hydroponics Explained</a></li>
+            <li><a href="ai-cycle.html">AI Project Cycle</a></li>
+            <li><a href="student-work.html">Student Work & Data</a></li>
+            <li><a href="submission.html">Submission Portal</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Project Details</h4>
+          <p style="margin-bottom: 0.5rem;"><strong>Subject:</strong> Science & AI Exhibition</p>
+          <p style="margin-bottom: 0.5rem;"><strong>Theme:</strong> SDG 3: Good Health & Wellbeing</p>
+          <p><strong>Status:</strong> Holiday Homework Project</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026. Designed for Central Board of Secondary Education (CBSE) Curriculum.</p>
+        <div class="footer-bottom-links">
+          <span style="color: var(--primary); font-weight: 600;">SDG Goal 3: Good Health & Wellbeing</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/interactive-hydro.js"></script>
+</body>
+</html>

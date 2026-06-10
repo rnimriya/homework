@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthy Living Through Hydroponics - SDG 3 Project</title>
+  <meta name="description" content="Explore how hydroponics and AI technologies support UN Sustainable Development Goal 3: Good Health and Wellbeing by growing safe, pesticide-free food.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">
+        <div class="logo-icon">🌿</div>
+        <span>HydroGrow</span>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html">Home</a></li>
+          <li class="nav-item"><a href="health-food.html">Health & Food</a></li>
+          <li class="nav-item"><a href="hydroponics.html">Hydroponics</a></li>
+          <li class="nav-item"><a href="ai-cycle.html">AI Project Cycle</a></li>
+          <li class="nav-item"><a href="student-work.html">Student Work</a></li>
+          <li class="nav-item"><a href="submission.html">Submission</a></li>
+        </ul>
+      </nav>
+      <div class="nav-controls">
+        <button class="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        <button class="hamburger" aria-label="Open Navigation Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-layout">
+      <div class="hero-content">
+        <span class="hero-tag">SDG 3: Good Health & Wellbeing</span>
+        <h1>Healthy Living Through Hydroponics</h1>
+        <p class="hero-desc">Growing safe, nutrition-dense, pesticide-free food for a better life. Explore how soil-less agriculture and artificial intelligence are revolutionizing urban farming and helping achieve global health goals.</p>
+        
+        <div class="hero-btns">
+          <a href="health-food.html" class="btn btn-primary">Learn Importance ➔</a>
+          <a href="hydroponics.html" class="btn btn-outline">Explore Hydroponics</a>
+        </div>
+
+        <!-- Student Profile Display Card -->
+        <div class="student-card">
+          <div class="student-info">
+            <div class="student-avatar" id="display-student-avatar">AS</div>
+            <div class="student-details">
+              <h4 id="display-student-name">Aarav Sharma</h4>
+              <p>Class <span id="display-student-class">IX</span> - Section <span id="display-student-section">A</span> | Roll No: <span id="display-student-roll">12</span></p>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">Holiday Homework Project</p>
+            </div>
+          </div>
+          <button class="settings-btn" id="edit-student-btn" title="Edit Student Profile">⚙️</button>
+        </div>
+
+      </div>
+      <div class="hero-img-container">
+        <img src="assets/hero-hydro.png" alt="Futuristic vertical hydroponic farm with bright glowing pink-blue LED light panels and lush green lettuce leaves" class="hero-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- SDG 3 Introduction -->
+  <section class="section" style="background-color: var(--bg-secondary); transition: background-color var(--transition-speed) ease;">
+    <div class="container">
+      <h2 class="section-title">Understanding SDG 3</h2>
+      <p style="text-align: center; max-width: 800px; margin: 0 auto 4rem auto; font-size: 1.1rem; line-height: 1.7;">
+        The United Nations Sustainable Development Goal 3 (SDG 3) aims to <strong>"Ensure healthy lives and promote well-being for all at all ages."</strong> Good health is the foundation of a prosperous, happy society, and what we eat is the foundation of our health.
+      </p>
+
+      <div class="sdg-grid">
+        <!-- Card 1 -->
+        <div class="glass-card sdg-card">
+          <div class="sdg-number">01</div>
+          <h3>Pesticide-Free Food</h3>
+          <p>Chemical fertilizers and synthetic pesticides used in conventional farming accumulate in food. Growing food hydroponically reduces toxic exposure, protecting long-term human health.</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="glass-card sdg-card">
+          <div class="sdg-number">02</div>
+          <h3>High Nutritional Value</h3>
+          <p>Hydroponic systems deliver mineral-rich nutrient solutions straight to roots. Plants grow faster, absorb nutrients efficiently, and offer peak vitamins and taste for balanced diets.</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="glass-card sdg-card">
+          <div class="sdg-number">03</div>
+          <h3>Sustainable Local Yield</h3>
+          <p>Hydroponics can be deployed in urban environments, classrooms, or high-density housing. It uses up to 90% less water than soil farming, bringing healthy fresh greens directly to communities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profile Edit Modal -->
+  <div class="modal" id="student-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3 style="margin-bottom: 1.5rem; text-align: center; color: var(--primary);">Edit Student Details</h3>
+      <form id="student-form">
+        <div class="form-group">
+          <label for="input-name">Student Name</label>
+          <input type="text" id="input-name" class="form-input" required placeholder="Enter your full name">
+        </div>
+        <div class="form-group">
+          <label for="input-class">Class</label>
+          <input type="text" id="input-class" class="form-input" required placeholder="e.g. IX or X">
+        </div>
+        <div class="form-group">
+          <label for="input-section">Section</label>
+          <input type="text" id="input-section" class="form-input" required placeholder="e.g. A or B">
+        </div>
+        <div class="form-group">
+          <label for="input-roll">Roll Number</label>
+          <input type="text" id="input-roll" class="form-input" required placeholder="e.g. 12 or 24">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Save & Update</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-layout">
+        <div class="footer-brand">
+          <h3 style="display: flex; align-items: center; gap: 0.5rem; color: var(--primary);">
+            <span style="font-size: 1.4rem;">🌿</span> HydroGrow Project
+          </h3>
+          <p>Promoting healthy living, food security, and modern sustainable agriculture through smart hydroponic gardening and AI technology.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Explore Project</h4>
+          <ul>
+            <li><a href="index.html">Home / Overview</a></li>
+            <li><a href="health-food.html">Good Health & Safe Food</a></li>
+            <li><a href="hydroponics.html">Hydroponics Explained</a></li>
+            <li><a href="ai-cycle.html">AI Project Cycle</a></li>
+            <li><a href="student-work.html">Student Work & Data</a></li>
+            <li><a href="submission.html">Submission Portal</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Project Details</h4>
+          <p style="margin-bottom: 0.5rem;"><strong>Subject:</strong> Science & AI Exhibition</p>
+          <p style="margin-bottom: 0.5rem;"><strong>Theme:</strong> SDG 3: Good Health & Wellbeing</p>
+          <p><strong>Status:</strong> Holiday Homework Project</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026. Designed for Central Board of Secondary Education (CBSE) Curriculum.</p>
+        <div class="footer-bottom-links">
+          <span style="color: var(--primary); font-weight: 600;">SDG Goal 3: Good Health & Wellbeing</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

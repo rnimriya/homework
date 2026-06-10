@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Project Cycle - SDG 3 Project</title>
+  <meta name="description" content="Understand the 5 stages of the AI Project Cycle: Scoping, Acquisition, Exploration, Modelling, and Evaluation, applied to smart hydroponics.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Specific layouts for ai-cycle.html */
+    .cycle-layout {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 3rem;
+      margin: 4rem 0;
+    }
+    
+    .cycle-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .cycle-step-tab {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--border-radius);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      transition: all var(--transition-speed) ease;
+      text-align: left;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+    
+    .cycle-step-tab:hover {
+      transform: translateX(5px);
+      border-color: var(--primary);
+      color: var(--text-primary);
+    }
+    
+    .cycle-step-tab.active {
+      background: var(--primary-glow);
+      border-color: var(--primary);
+      color: var(--primary);
+      box-shadow: 0 4px 12px var(--primary-glow);
+    }
+    
+    .step-number-badge {
+      width: 36px;
+      height: 36px;
+      background: var(--bg-primary);
+      border: 1px solid var(--glass-border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      transition: all var(--transition-speed) ease;
+    }
+    
+    .cycle-step-tab.active .step-number-badge {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    
+    .step-detail-box {
+      min-height: 450px;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    
+    .detail-header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--glass-border);
+      padding-bottom: 1.5rem;
+    }
+    
+    .detail-icon {
+      font-size: 3.5rem;
+      background: var(--primary-glow);
+      width: 80px;
+      height: 80px;
+      border-radius: var(--border-radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--card-border);
+    }
+    
+    .detail-header h3 {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+    
+    .detail-header h4 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin: 0.25rem 0 0 0;
+    }
+    
+    .app-box {
+      background: var(--bg-primary);
+      border-left: 4px solid var(--primary);
+      padding: 1.5rem;
+      border-radius: 0 12px 12px 0;
+      margin-top: 2rem;
+    }
+    
+    .app-box h5 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    @media (max-width: 992px) {
+      .cycle-layout {
+        grid-template-columns: 1fr;
+      }
+      .cycle-step-tab:hover {
+        transform: translateY(-2px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">
+        <div class="logo-icon">🌿</div>
+        <span>HydroGrow</span>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html">Home</a></li>
+          <li class="nav-item"><a href="health-food.html">Health & Food</a></li>
+          <li class="nav-item"><a href="hydroponics.html">Hydroponics</a></li>
+          <li class="nav-item"><a href="ai-cycle.html">AI Project Cycle</a></li>
+          <li class="nav-item"><a href="student-work.html">Student Work</a></li>
+          <li class="nav-item"><a href="submission.html">Submission</a></li>
+        </ul>
+      </nav>
+      <div class="nav-controls">
+        <button class="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        <button class="hamburger" aria-label="Open Navigation Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="section" style="padding-bottom: 2rem; background: radial-gradient(circle at 10% 80%, var(--primary-glow) 0%, transparent 40%);">
+    <div class="container" style="text-align: center;">
+      <span class="hero-tag">Page 3: Artificial Intelligence</span>
+      <h1 style="font-size: 3rem; margin-bottom: 1rem; font-weight: 800;">The AI Project Cycle</h1>
+      <p style="max-width: 700px; margin: 0 auto; font-size: 1.15rem; color: var(--text-secondary);">
+        Understand the standard steps required to build an intelligent software system. Learn how each stage directly enables smart automation in hydroponic growing.
+      </p>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="section" style="padding-top: 2rem;">
+    <div class="container">
+      
+      <div class="cycle-layout">
+        <!-- Sidebar Navigation (Timeline Steps) -->
+        <div class="cycle-sidebar">
+          <button class="cycle-step-tab active" data-step="scoping">
+            <span class="step-number-badge">1</span>
+            <span>Problem Scoping</span>
+          </button>
+          
+          <button class="cycle-step-tab" data-step="acquisition">
+            <span class="step-number-badge">2</span>
+            <span>Data Acquisition</span>
+          </button>
+          
+          <button class="cycle-step-tab" data-step="exploration">
+            <span class="step-number-badge">3</span>
+            <span>Data Exploration</span>
+          </button>
+          
+          <button class="cycle-step-tab" data-step="modelling">
+            <span class="step-number-badge">4</span>
+            <span>AI Modelling</span>
+          </button>
+          
+          <button class="cycle-step-tab" data-step="evaluation">
+            <span class="step-number-badge">5</span>
+            <span>Evaluation</span>
+          </button>
+        </div>
+
+        <!-- Details Display Card -->
+        <div class="glass-card step-detail-box" id="step-detail-container">
+          <div class="detail-header">
+            <div class="detail-icon" id="step-detail-icon">🎯</div>
+            <div>
+              <h3 id="step-detail-title">1. Problem Scoping</h3>
+              <h4 id="step-detail-subtitle">Defining the Goal & SDG Alignment</h4>
+            </div>
+          </div>
+
+          <div style="font-size: 1.05rem; line-height: 1.75; margin-bottom: 1.5rem;">
+            <p id="step-detail-desc">The starting point of any AI project. We identify a real-world problem, define the objectives, and align it with global goals like SDG 3.</p>
+          </div>
+
+          <div class="app-box">
+            <h5>Hydroponics Application</h5>
+            <p id="step-detail-app">
+              <strong>Project Goal:</strong> How can we automate the detection of nutrient deficiencies in hydroponic lettuce plants early, ensuring maximum yield of safe, healthy food?<br><br>
+              <strong>SDG 3 Alignment:</strong> By detecting deficiencies early, we prevent crop failure, maximize crop nutrition, and guarantee safe, pesticide-free fresh food output for families.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-layout">
+        <div class="footer-brand">
+          <h3 style="display: flex; align-items: center; gap: 0.5rem; color: var(--primary);">
+            <span style="font-size: 1.4rem;">🌿</span> HydroGrow Project
+          </h3>
+          <p>Promoting healthy living, food security, and modern sustainable agriculture through smart hydroponic gardening and AI technology.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Explore Project</h4>
+          <ul>
+            <li><a href="index.html">Home / Overview</a></li>
+            <li><a href="health-food.html">Good Health & Safe Food</a></li>
+            <li><a href="hydroponics.html">Hydroponics Explained</a></li>
+            <li><a href="ai-cycle.html">AI Project Cycle</a></li>
+            <li><a href="student-work.html">Student Work & Data</a></li>
+            <li><a href="submission.html">Submission Portal</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Project Details</h4>
+          <p style="margin-bottom: 0.5rem;"><strong>Subject:</strong> Science & AI Exhibition</p>
+          <p style="margin-bottom: 0.5rem;"><strong>Theme:</strong> SDG 3: Good Health & Wellbeing</p>
+          <p><strong>Status:</strong> Holiday Homework Project</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026. Designed for Central Board of Secondary Education (CBSE) Curriculum.</p>
+        <div class="footer-bottom-links">
+          <span style="color: var(--primary); font-weight: 600;">SDG Goal 3: Good Health & Wellbeing</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/ai-cycle.js"></script>
+</body>
+</html>

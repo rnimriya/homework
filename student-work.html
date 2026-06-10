@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Work & Visuals - SDG 3 Project</title>
+  <meta name="description" content="Explore real student experimental data, plant growth comparison charts, and run diagnostics with the interactive AI leaf disease detector model.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Specific styles for student-work.html */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+      align-items: center;
+    }
+    
+    .chart-container {
+      background: var(--bg-secondary);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      height: 380px;
+      width: 100%;
+    }
+    
+    /* Detector Layout */
+    .detector-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2.5rem;
+      margin: 4rem 0;
+    }
+    
+    .detector-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .samples-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+    
+    .leaf-sample {
+      background: var(--bg-primary);
+      border: 2px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 0.75rem;
+      cursor: pointer;
+      text-align: center;
+      transition: all var(--transition-speed) ease;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+    
+    .leaf-sample:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+    
+    .leaf-sample.active {
+      background: var(--primary-glow);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    
+    .leaf-sample-thumb {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto 0.5rem auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+    }
+    
+    .preview-box {
+      border: 2px dashed var(--glass-border);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      text-align: center;
+      background: var(--bg-secondary);
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .preview-box img {
+      max-width: 160px;
+      max-height: 160px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    
+    .detector-console {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    
+    /* Progress Styling */
+    .progress-bar-container {
+      width: 100%;
+      background: var(--bg-primary);
+      border-radius: 10px;
+      height: 16px;
+      overflow: hidden;
+      margin-bottom: 0.75rem;
+      border: 1px solid var(--glass-border);
+    }
+    
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transition: width 0.3s ease;
+    }
+    
+    /* Status Badges */
+    .status-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      margin-top: 0.5rem;
+    }
+    
+    .status-success { background: rgba(16, 185, 129, 0.15); color: var(--success); }
+    .status-warning { background: rgba(245, 158, 11, 0.15); color: var(--warning); }
+    .status-danger { background: rgba(239, 68, 68, 0.15); color: var(--danger); }
+    
+    @media (max-width: 992px) {
+      .grid-2col,
+      .detector-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .chart-container {
+        height: 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">
+        <div class="logo-icon">🌿</div>
+        <span>HydroGrow</span>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html">Home</a></li>
+          <li class="nav-item"><a href="health-food.html">Health & Food</a></li>
+          <li class="nav-item"><a href="hydroponics.html">Hydroponics</a></li>
+          <li class="nav-item"><a href="ai-cycle.html">AI Project Cycle</a></li>
+          <li class="nav-item"><a href="student-work.html">Student Work</a></li>
+          <li class="nav-item"><a href="submission.html">Submission</a></li>
+        </ul>
+      </nav>
+      <div class="nav-controls">
+        <button class="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        <button class="hamburger" aria-label="Open Navigation Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="section" style="padding-bottom: 2rem; background: radial-gradient(circle at 50% 50%, var(--primary-glow) 0%, transparent 60%);">
+    <div class="container" style="text-align: center;">
+      <span class="hero-tag">Page 4: Visuals & Evidence</span>
+      <h1 style="font-size: 3rem; margin-bottom: 1rem; font-weight: 800;">Student Work & Experiments</h1>
+      <p style="max-width: 700px; margin: 0 auto; font-size: 1.15rem; color: var(--text-secondary);">
+        Explore the visual logs of our school hydroponics experiment and test out our custom diagnostic model with actual dataset leaves.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 1: Photos and Narrative -->
+  <section class="section" style="padding-top: 2rem; padding-bottom: 2rem;">
+    <div class="container">
+      <div class="grid-2col">
+        <div class="hero-content">
+          <h2 style="font-size: 2rem; margin-bottom: 1.25rem;">Classroom Greenhouse Log</h2>
+          <p>Over a 30-day monitoring block, our student team grew butterhead lettuce inside a mock hydroponics NFT setup using recycled PVC gutter channels and an electric low-voltage water pump.</p>
+          <p>We tracked two core groups under identical LED lighting structures: an experimental NFT setup receiving automated liquid nutrients, and a control group planted in high-quality garden soil. We photographed the leaves daily to build a dataset for training our leaf disease classifier model.</p>
+        </div>
+        <div class="hero-img-container">
+          <img src="assets/school-experiment.png" alt="A student standing proudly next to a DIY container hydroponics system and a display board illustrating charts and AI project elements in a classroom" class="hero-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Interactive Growth Charts -->
+  <section class="section" style="padding-top: 2rem; padding-bottom: 2rem; background: var(--bg-secondary); transition: background-color var(--transition-speed) ease;">
+    <div class="container">
+      <h2 class="section-title">Growth Analysis (30-Day Period)</h2>
+      <p style="text-align: center; max-width: 600px; margin: -2rem auto 3rem auto; color: var(--text-secondary);">
+        Growth height (cm) comparison showing accelerated cellular development of NFT hydroponic greens vs. conventional soil seedlings.
+      </p>
+      
+      <div class="chart-container">
+        <canvas id="growthChart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Interactive Leaf Disease Classifier Simulator -->
+  <section class="section" style="padding-top: 4rem;">
+    <div class="container">
+      <h2 class="section-title">Model Testing: Mock AI Leaf Classifier</h2>
+      <p style="text-align: center; max-width: 600px; margin: -2rem auto 3rem auto; color: var(--text-secondary);">
+        Select a sample leaf below or upload your own photo, then execute the CNN diagnostic script to classify nutrient deficiencies.
+      </p>
+
+      <div class="detector-layout">
+        <!-- Input pane -->
+        <div class="detector-inputs">
+          <h3 style="font-size: 1.3rem;">1. Select Input Target</h3>
+          
+          <div class="samples-grid">
+            <div class="leaf-sample active" data-sample="healthy">
+              <div class="leaf-sample-thumb">🥬</div>
+              Healthy Leaf
+            </div>
+            <div class="leaf-sample" data-sample="nitrogen">
+              <div class="leaf-sample-thumb">🍂</div>
+              Yellow Leaf
+            </div>
+            <div class="leaf-sample" data-sample="mold">
+              <div class="leaf-sample-thumb">🤎</div>
+              Spotted Leaf
+            </div>
+          </div>
+
+          <div>
+            <label style="display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-primary);">Or Upload Custom Image:</label>
+            <input type="file" id="leaf-upload" accept="image/*" class="form-input">
+          </div>
+
+          <div class="preview-box">
+            <!-- Initial SVG for healthy leaf -->
+            <img id="detector-preview" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23d1fae5'/><path d='M50 15 C30 35 30 65 50 85 C70 65 70 35 50 15 Z' fill='%2310b981'/><path d='M50 15 L50 85 M50 35 L35 45 M50 50 L35 60 M50 65 L35 75 M50 35 L65 45 M50 50 L65 60 M50 65 L65 75' stroke='%23047857' stroke-width='2' fill='none'/></svg>" alt="Leaf preview target">
+          </div>
+
+          <button id="diagnose-btn" class="btn btn-primary" style="width: 100%;">Run Diagnostic Model ➔</button>
+        </div>
+
+        <!-- Output Console -->
+        <div class="detector-console">
+          <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem;">2. Model Output Diagnostic</h3>
+          
+          <div class="glass-card" id="detector-results" style="display: none; height: 100%; min-height: 340px;">
+            <!-- Loading states will load here -->
+            <div id="detector-progress-container" style="display: none; padding: 4rem 1rem; text-align: center;">
+              <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="detector-progress-bar"></div>
+              </div>
+              <p id="detector-progress-text" style="font-size: 0.9rem; font-weight: 600; color: var(--text-secondary);">Initializing convolution kernels...</p>
+            </div>
+            
+            <!-- Result contents will be dynamically written here -->
+            <div id="results-content" style="display: none;"></div>
+          </div>
+
+          <!-- Empty fallback instructions -->
+          <div id="console-placeholder" class="glass-card" style="display: flex; align-items: center; justify-content: center; height: 100%; min-height: 340px; border-style: dashed; text-align: center; color: var(--text-muted);">
+            <div style="padding: 2rem;">
+              <span style="font-size: 3rem;">🖥️</span>
+              <h4 style="margin-top: 1rem; color: var(--text-muted);">Console Awaiting Command</h4>
+              <p style="font-size: 0.9rem; margin-bottom: 0;">Configure your leaf target on the left panel, then trigger the "Run Diagnostic Model" classifier script.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-layout">
+        <div class="footer-brand">
+          <h3 style="display: flex; align-items: center; gap: 0.5rem; color: var(--primary);">
+            <span style="font-size: 1.4rem;">🌿</span> HydroGrow Project
+          </h3>
+          <p>Promoting healthy living, food security, and modern sustainable agriculture through smart hydroponic gardening and AI technology.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Explore Project</h4>
+          <ul>
+            <li><a href="index.html">Home / Overview</a></li>
+            <li><a href="health-food.html">Good Health & Safe Food</a></li>
+            <li><a href="hydroponics.html">Hydroponics Explained</a></li>
+            <li><a href="ai-cycle.html">AI Project Cycle</a></li>
+            <li><a href="student-work.html">Student Work & Data</a></li>
+            <li><a href="submission.html">Submission Portal</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Project Details</h4>
+          <p style="margin-bottom: 0.5rem;"><strong>Subject:</strong> Science & AI Exhibition</p>
+          <p style="margin-bottom: 0.5rem;"><strong>Theme:</strong> SDG 3: Good Health & Wellbeing</p>
+          <p><strong>Status:</strong> Holiday Homework Project</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026. Designed for Central Board of Secondary Education (CBSE) Curriculum.</p>
+        <div class="footer-bottom-links">
+          <span style="color: var(--primary); font-weight: 600;">SDG Goal 3: Good Health & Wellbeing</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/student-charts.js"></script>
+  <script src="js/leaf-detector.js"></script>
+  <script>
+    // Toggle standard dashboard console layout helper
+    const diagBtn = document.getElementById('diagnose-btn');
+    const consolePlaceholder = document.getElementById('console-placeholder');
+    
+    if (diagBtn && consolePlaceholder) {
+      diagBtn.addEventListener('click', () => {
+        consolePlaceholder.style.display = 'none';
+      });
+    }
+
+    // Reset helper
+    const samples = document.querySelectorAll('.leaf-sample');
+    const uploader = document.getElementById('leaf-upload');
+    
+    function resetConsole() {
+      consolePlaceholder.style.display = 'flex';
+      document.getElementById('detector-results').style.display = 'none';
+    }
+
+    samples.forEach(s => s.addEventListener('click', resetConsole));
+    if (uploader) uploader.addEventListener('change', resetConsole);
+  </script>
+</body>
+</html>

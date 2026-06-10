@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holiday Homework Submission - SDG 3 Project</title>
+  <meta name="description" content="Submit your school science and AI holiday homework on Hydroponics and SDG 3. Review rules, guidelines, rubrics, and upload your project files.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Specific styles for submission.html */
+    .portal-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    
+    .rules-list {
+      list-style: none;
+    }
+    
+    .rules-list li {
+      margin-bottom: 1.25rem;
+      padding-left: 2rem;
+      position: relative;
+    }
+    
+    .rules-list li::before {
+      content: '📌';
+      position: absolute;
+      left: 0;
+      top: 0.1rem;
+    }
+    
+    .deadline-badge {
+      display: inline-block;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px dashed var(--warning);
+      color: var(--warning);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      animation: pulse 2s infinite;
+    }
+    
+    .rubric-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+    }
+    
+    .rubric-table th,
+    .rubric-table td {
+      border: 1px solid var(--glass-border);
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+    
+    .rubric-table th {
+      background: var(--bg-primary);
+      font-weight: 700;
+    }
+    
+    /* Success Modal Styles */
+    .success-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2000;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(5px);
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .success-modal.active {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .success-content {
+      background: var(--bg-secondary);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--border-radius);
+      padding: 3rem;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+      position: relative;
+      animation: slideUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .success-icon-wrap {
+      width: 80px;
+      height: 80px;
+      background: var(--primary-glow);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 3rem;
+      margin: 0 auto 1.5rem auto;
+      border: 2px solid var(--primary);
+    }
+    
+    .receipt-box {
+      background: var(--bg-primary);
+      border: 1px solid var(--glass-border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: left;
+    }
+    
+    .receipt-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      border-bottom: 1px dashed var(--glass-border);
+      padding-bottom: 0.5rem;
+    }
+    
+    .receipt-row:last-child {
+      border: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .receipt-label {
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+    
+    .receipt-value {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+      100% { transform: scale(1); }
+    }
+    
+    @media (max-width: 992px) {
+      .portal-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">
+        <div class="logo-icon">🌿</div>
+        <span>HydroGrow</span>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html">Home</a></li>
+          <li class="nav-item"><a href="health-food.html">Health & Food</a></li>
+          <li class="nav-item"><a href="hydroponics.html">Hydroponics</a></li>
+          <li class="nav-item"><a href="ai-cycle.html">AI Project Cycle</a></li>
+          <li class="nav-item"><a href="student-work.html">Student Work</a></li>
+          <li class="nav-item"><a href="submission.html">Submission</a></li>
+        </ul>
+      </nav>
+      <div class="nav-controls">
+        <button class="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        <button class="hamburger" aria-label="Open Navigation Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="section" style="padding-bottom: 2rem; background: radial-gradient(circle at 90% 90%, var(--primary-glow) 0%, transparent 40%);">
+    <div class="container" style="text-align: center;">
+      <span class="hero-tag">Page 5: Homework Portal</span>
+      <h1 style="font-size: 3rem; margin-bottom: 1rem; font-weight: 800;">Holiday Homework Submission</h1>
+      <p style="max-width: 700px; margin: 0 auto; font-size: 1.15rem; color: var(--text-secondary);">
+        Review submission directives, assessment guidelines, and upload your final project files to register your school completion record.
+      </p>
+    </div>
+  </section>
+
+  <!-- Submission Portal Layout -->
+  <section class="section" style="padding-top: 2rem;">
+    <div class="container">
+      
+      <div class="portal-layout">
+        <!-- Guidelines and instructions Column -->
+        <div>
+          <div class="deadline-badge">
+            📅 Deadline: June 30th, 2026 at 23:59 IST
+          </div>
+
+          <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem;">Submission Instructions</h2>
+          
+          <ul class="rules-list">
+            <li><strong>Project Document:</strong> Upload your detailed project report in <code>.pdf</code> format containing the experimental setup, growth logs, and AI project details.</li>
+            <li><strong>Visual Evidence:</strong> Include at least 3 photos of your hydroponic setup or the mock leaf classifier diagnostics dashboard runs.</li>
+            <li><strong>Formatting:</strong> Maintain name and class details on the cover sheet matching your registered portal details (update via settings cog on Home).</li>
+          </ul>
+
+          <h3 style="font-size: 1.3rem; margin-top: 3rem; margin-bottom: 1rem;">CBSE Grading Rubric</h3>
+          <p>Projects will be evaluated based on the following criteria:</p>
+          
+          <table class="rubric-table">
+            <thead>
+              <tr>
+                <th>Criteria</th>
+                <th>Weightage</th>
+                <th>Focus Areas</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>AI Cycle Knowledge</strong></td>
+                <td>40%</td>
+                <td>Accurate description of AI phases and deficiency classification mapping.</td>
+              </tr>
+              <tr>
+                <td><strong>Science Implementation</strong></td>
+                <td>30%</td>
+                <td>Nutrient balance accuracy, water recycling flow controls (NFT model).</td>
+              </tr>
+              <tr>
+                <td><strong>Documentation & Logbook</strong></td>
+                <td>30%</td>
+                <td>Clean logs, growth chart data consistency, visual proof.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Submission Form Column -->
+        <div class="glass-card">
+          <h2 style="font-size: 1.6rem; margin-bottom: 1.5rem; color: var(--primary);">Register Homework Details</h2>
+          
+          <form id="submission-form">
+            <!-- Student Name (Pre-filled, linked to profile) -->
+            <div class="form-group">
+              <label for="sub-student-name">Student Name</label>
+              <input type="text" id="sub-student-name" class="form-input" disabled style="opacity: 0.7; cursor: not-allowed; font-weight: bold;">
+            </div>
+
+            <!-- Student Class (Pre-filled, linked to profile) -->
+            <div class="form-group">
+              <label for="sub-student-class">Class & Section</label>
+              <input type="text" id="sub-student-class" class="form-input" disabled style="opacity: 0.7; cursor: not-allowed;">
+              <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem; margin-bottom: 0;">⚠️ Change Name/Class via the settings gear icon on the <a href="index.html" style="font-weight: 600;">Home Page</a>.</p>
+            </div>
+
+            <!-- Partner Name -->
+            <div class="form-group">
+              <label for="sub-partner-name">Project Partner (If Any)</label>
+              <input type="text" id="sub-partner-name" class="form-input" placeholder="e.g. Rahul Verma">
+            </div>
+
+            <!-- Document Upload -->
+            <div class="form-group">
+              <label for="sub-file-upload">Project Report (PDF only)*</label>
+              <input type="file" id="sub-file-upload" class="form-input" required accept=".pdf">
+            </div>
+
+            <!-- Photos upload -->
+            <div class="form-group">
+              <label for="sub-image-upload">Photos of Experiments (Multiple)*</label>
+              <input type="file" id="sub-image-upload" class="form-input" required multiple accept="image/*">
+            </div>
+
+            <!-- Presentation Link -->
+            <div class="form-group">
+              <label for="sub-link">Video Explanation Link (Optional)</label>
+              <input type="url" id="sub-link" class="form-input" placeholder="e.g. https://youtube.com/watch?v=...">
+            </div>
+
+            <!-- Integrity Checkbox -->
+            <div class="form-group" style="display: flex; gap: 0.75rem; align-items: flex-start; margin-top: 1.5rem;">
+              <input type="checkbox" id="sub-check" required style="margin-top: 0.3rem; cursor: pointer;">
+              <label for="sub-check" style="font-size: 0.85rem; color: var(--text-secondary); cursor: pointer;">
+                I verify that this project aligns with SDG 3 parameters, utilizes the correct AI Project Cycle phases, and is my own original work.
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">Submit Homework Portal ➔</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Success Modal Overlay -->
+  <div class="success-modal" id="success-modal">
+    <div class="success-content">
+      <button class="modal-close success-close">&times;</button>
+      
+      <div class="success-icon-wrap">✔</div>
+      <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--success);">Homework Submitted!</h3>
+      <p style="color: var(--text-secondary); font-size: 0.95rem;">Your SDG 3 Hydroponics project report has been securely registered in the school digital archives.</p>
+
+      <!-- Print layout container -->
+      <div class="receipt-box" id="printable-receipt">
+        <div class="receipt-row">
+          <span class="receipt-label">Receipt ID:</span>
+          <span class="receipt-value" id="receipt-id">HW-SDG3-128472</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-label">Timestamp:</span>
+          <span class="receipt-value" id="receipt-date">June 9, 2026</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-label">Student:</span>
+          <span class="receipt-value" id="receipt-student">Aarav Sharma</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-label">Class:</span>
+          <span class="receipt-value" id="receipt-class">Class IX-A</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-label">Partner Name:</span>
+          <span class="receipt-value" id="receipt-partner">None</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-label">Attached Report:</span>
+          <span class="receipt-value" id="receipt-filename">hydroponics.pdf</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-label">Status:</span>
+          <span class="receipt-value" style="color: var(--success);">SUCCESSFULLY FILED</span>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+        <button id="print-receipt-btn" class="btn btn-outline" style="flex: 1; gap: 0.5rem;">🖨️ Print Receipt</button>
+        <button class="btn btn-primary success-close" style="flex: 1;">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-layout">
+        <div class="footer-brand">
+          <h3 style="display: flex; align-items: center; gap: 0.5rem; color: var(--primary);">
+            <span style="font-size: 1.4rem;">🌿</span> HydroGrow Project
+          </h3>
+          <p>Promoting healthy living, food security, and modern sustainable agriculture through smart hydroponic gardening and AI technology.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Explore Project</h4>
+          <ul>
+            <li><a href="index.html">Home / Overview</a></li>
+            <li><a href="health-food.html">Good Health & Safe Food</a></li>
+            <li><a href="hydroponics.html">Hydroponics Explained</a></li>
+            <li><a href="ai-cycle.html">AI Project Cycle</a></li>
+            <li><a href="student-work.html">Student Work & Data</a></li>
+            <li><a href="submission.html">Submission Portal</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Project Details</h4>
+          <p style="margin-bottom: 0.5rem;"><strong>Subject:</strong> Science & AI Exhibition</p>
+          <p style="margin-bottom: 0.5rem;"><strong>Theme:</strong> SDG 3: Good Health & Wellbeing</p>
+          <p><strong>Status:</strong> Holiday Homework Project</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026. Designed for Central Board of Secondary Education (CBSE) Curriculum.</p>
+        <div class="footer-bottom-links">
+          <span style="color: var(--primary); font-weight: 600;">SDG Goal 3: Good Health & Wellbeing</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/submission.js"></script>
+</body>
+</html>
